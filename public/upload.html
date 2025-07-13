@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Media</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Upload Images & Videos</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">View News</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="upload-container">
+            <h2>Select or Drag & Drop Files</h2>
+            <div id="drop-area" class="drop-area">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <p class="drag-text">Drag & drop your files here, or</p>
+                <input type="file" multiple accept="image/*,video/*" id="file-input" hidden>
+                <button class="browse-button" onclick="document.getElementById('file-input').click()">Browse Files</button>
+                <p class="file-type-info">Supported: JPG, PNG, GIF, MP4, MOV, etc.</p>
+            </div>
+            <div id="preview-container" class="preview-container">
+                <!-- File previews will be displayed here -->
+            </div>
+            <button id="upload-button" class="upload-button" disabled>Upload Files</button>
+            <p id="status-message" class="status-message"></p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 My News Website</p>
+    </footer>
+    <script src="upload.js"></script>
+</body>
+</html>

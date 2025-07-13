@@ -1,0 +1,271 @@
+/* Basic Reset & Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* Light background */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header & Navigation */
+header {
+    background-color: #2c3e50; /* Dark blue */
+    color: #ecf0f1; /* Light gray text */
+    padding: 1rem 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    padding-bottom: 5px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow navigation items to wrap on smaller screens */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active { /* You could add an 'active' class via JS for the current category */
+    background-color: #34495e; /* Slightly lighter dark blue */
+}
+
+/* Main Content Wrapper (Flexbox for layout) */
+.content-wrapper {
+    display: flex; /* Use Flexbox for main layout */
+    max-width: 1200px; /* Max width for content */
+    margin: 20px auto; /* Center the content wrapper */
+    padding: 0 20px; /* Padding on the sides */
+    gap: 30px; /* Space between main content and sidebar */
+}
+
+/* Main News Container */
+main#news-container {
+    flex-grow: 1; /* Allow main content to take up available space */
+    flex-basis: 70%; /* Suggest 70% width for main content */
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* News Article Styling */
+.article {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.article:last-child {
+    border-bottom: none; /* No border for the last article */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.article h2 {
+    color: #2980b9; /* Blue */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.article p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.article img, .article video {
+    display: block; /* Ensures elements take full width and no extra space below */
+    max-width: 100%; /* Makes images/videos responsive */
+    height: auto; /* Maintains aspect ratio */
+    margin: 15px 0; /* Space above and below media */
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Sidebar for Uploaded Media */
+aside#uploaded-media-sidebar {
+    flex-basis: 30%; /* Suggest 30% width for sidebar */
+    min-width: 250px; /* Ensure a minimum width for the sidebar */
+    background-color: #ecf0f1; /* Light gray */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+aside#uploaded-media-sidebar h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 1px solid #bdc3c7; /* Gray border */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+/* Grid for media previews */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid, minimum 100px wide items */
+    gap: 10px;
+}
+
+/* Individual media item in the grid */
+.media-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden; /* Hide anything that overflows the rounded corners */
+    background-color: #fff;
+    text-align: center;
+    padding-bottom: 5px;
+    display: flex; /* Use flex for content inside media-item */
+    flex-direction: column; /* Stack image/video and text vertically */
+     position: relative;
+}
+
+/* ... (existing styles) ... */
+
+.media-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column; /* Stack image/video, text, and button vertically */
+    justify-content: space-between; /* Space out content vertically */
+    height: 100%; /* Ensure all items are same height in grid */
+}
+
+/* No longer need absolute positioning, so remove these properties:
+.delete-media-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+*/
+
+.delete-media-button {
+    background-color: rgba(220, 53, 69, 0.8); /* Red color with some transparency */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Make it a slightly rounded rectangle */
+    width: calc(100% - 10px); /* Take full width minus padding */
+    margin: 5px auto; /* Center it below the content */
+    padding: 5px 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1; /* Adjust line height for better centering */
+    transition: background-color 0.2s ease;
+}
+
+.delete-media-button:hover {
+    background-color: #dc3545; /* Solid red on hover */
+}
+
+/* Optional: Adjust preview max-height if needed to accommodate button space */
+.media-item img, .media-item video {
+    max-width: 100%;
+    height: auto;
+    max-height: 90px; /* Slightly reduced max-height to leave room for the button */
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0; /* Prevent image/video from shrinking */
+}
+
+.media-item p {
+    font-size: 0.8em;
+    margin: 5px 0; /* Adjust margin */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 5px;
+    color: #666;
+    flex-grow: 1; /* Allow paragraph to take up space */
+}
+.delete-media-button:hover {
+    background-color: #dc3545; /* Solid red on hover */
+}
+
+.media-item img, .media-item video {
+    max-width: 100%;
+    height: auto; /* Ensure aspect ratio is maintained */
+    max-height: 100px; /* Limit height of preview image/video */
+    object-fit: cover; /* Crop to cover the area if needed */
+    width: 100%; /* Ensure it fills the item width */
+    display: block;
+    border-bottom: 1px solid #eee; /* Separator for image/video and text */
+}
+
+.media-item p {
+    font-size: 0.8em;
+    margin: 5px 0 0 0;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;    /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    padding: 0 5px; /* Padding for the text */
+    color: #666;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #2c3e50; /* Dark blue */
+    color: #ecf0f1;
+    margin-top: 30px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column; /* Stack main content and sidebar vertically */
+        padding: 0 15px;
+    }
+
+    main#news-container,
+    aside#uploaded-media-sidebar {
+        flex-basis: auto; /* Let items take natural width */
+        width: 100%; /* Ensure they span full width */
+    }
+
+    aside#uploaded-media-sidebar {
+        max-width: none; /* Remove max-width restriction */
+        float: none; /* Remove float */
+        margin-left: 0; /* Reset margin */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Adjust vertical margin */
+    }
+}

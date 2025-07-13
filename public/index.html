@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My News Website</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Add Font Awesome if you plan to use icons on this page too -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>My Dynamic News</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="loadCategory('world')">World</a></li>
+                <li><a href="#" onclick="loadCategory('local')">Local</a></li>
+                <li><a href="#" onclick="loadCategory('sports')">Sports</a></li>
+                <li><a href="upload.html">Upload Media</a></li> <!-- Link to your dedicated upload page -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content-wrapper">
+        <main id="news-container">
+            <!-- News articles will be dynamically loaded here by script.js -->
+            <!-- Initial placeholder article (will be replaced by loadCategory('world') on page load) -->
+            <div class="article">
+                <h2>Welcome to My News Site!</h2>
+                <p>Select a category from the navigation bar or check out the latest uploads on the right.</p>
+                <p>This content will be replaced with dynamic news articles shortly.</p>
+            </div>
+        </main>
+
+           <aside id="uploaded-media-sidebar">
+            <h3>Latest Uploads</h3>
+            <div id="media-display-container" class="media-grid">
+                <!-- Uploaded media items will be loaded here by script.js -->
+                <p>Loading uploaded media...</p> <!-- Initial message before JS loads content -->
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 My News Website</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
